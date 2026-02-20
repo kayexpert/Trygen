@@ -22,19 +22,22 @@ body {
     color: var(--text);
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 2rem 1rem;
     position: relative;
 }
 
 /* Background Animations for Visual Impact */
 .background-animation {
-    position: absolute;
+    position: fixed;
+    top: -50vh;
+    left: -50vw;
     width: 200vw;
     height: 200vh;
     background: radial-gradient(circle at center, #1b4332 0%, #081c15 40%, var(--bg-dark) 80%);
-    z-index: 0;
+    z-index: -1;
     animation: rotateBg 40s linear infinite;
 }
 
@@ -50,10 +53,10 @@ body {
 
 /* Floating Gradient Blobs */
 .blob {
-    position: absolute;
+    position: fixed;
     border-radius: 50%;
     filter: blur(80px);
-    z-index: 0;
+    z-index: -1;
     opacity: 0.5;
     animation: floatBlob 10s ease-in-out infinite;
 }
@@ -100,6 +103,7 @@ body {
     border-radius: 30px;
     padding: 4rem 3rem;
     width: 90%;
+    margin: auto;
     max-width: 900px;
     z-index: 10;
     box-shadow: 0 30px 60px var(--glass-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -107,19 +111,6 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    animation: smoothReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes smoothReveal {
-    from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
 }
 
 /* Header & Typography */
